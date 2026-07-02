@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>조민수 · TRSN CLARUS — Portfolio</title>
+<meta name="description" content="번역가·통역사이자 개발자. 기업용 AI 번역/검토 플랫폼, 번역 서비스, 브랜드 웹을 만듭니다. 언어의 경계를 명료하게 넘다." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0c1626; --bg2:#0f1d33; --panel:#132542; --panel2:#16294a;
+    --line:#22375c; --ink:#eaf0f8; --muted:#9fb0c8; --dim:#6f829e;
+    --gold:#c8a86b; --gold2:#e0c691; --blue:#5b8bff; --ok:#5fd0a6;
+    --radius:16px; --max:1080px;
+    --font:'Inter','Noto Sans KR',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:var(--font); color:var(--ink); line-height:1.65;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(91,139,255,.12), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(200,168,107,.10), transparent 55%),
+      var(--bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
+  .muted{color:var(--muted)} .dim{color:var(--dim)}
+  .accent{color:var(--gold2)}
+
+  /* nav */
+  header.nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+    background:rgba(12,22,38,.72); border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.02em}
+  .brand .mark{width:26px; height:26px; border-radius:7px; display:grid; place-items:center;
+    background:linear-gradient(135deg,var(--gold),#9c7f45); color:#1b1204; font-weight:900; font-size:15px}
+  .brand small{color:var(--muted); font-weight:500}
+  nav.links{display:flex; gap:26px; font-size:14px}
+  nav.links a{color:var(--muted); transition:color .2s}
+  nav.links a:hover{color:var(--ink)}
+  @media(max-width:720px){ nav.links{display:none} }
+
+  /* hero */
+  .hero{padding:96px 0 64px}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--gold2);
+    border:1px solid var(--line); background:rgba(200,168,107,.07); padding:6px 12px; border-radius:999px; margin-bottom:22px}
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 4px rgba(95,208,166,.15)}
+  h1{font-size:clamp(34px,5.2vw,58px); line-height:1.1; margin:0 0 18px; font-weight:800; letter-spacing:-.01em}
+  h1 .grad{background:linear-gradient(120deg,var(--gold2),var(--blue)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .lead{font-size:clamp(16px,2vw,20px); color:var(--muted); max-width:640px}
+  .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:32px}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border-radius:12px; font-weight:600; font-size:15px; transition:transform .15s, box-shadow .2s, background .2s}
+  .btn.primary{background:linear-gradient(135deg,var(--gold),#a9884b); color:#1b1204; box-shadow:0 8px 24px rgba(200,168,107,.25)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{border:1px solid var(--line); color:var(--ink)}
+  .btn.ghost:hover{background:var(--panel)}
+  .stats{display:flex; gap:36px; flex-wrap:wrap; margin-top:52px; padding-top:32px; border-top:1px solid var(--line)}
+  .stat b{display:block; font-size:28px; font-weight:800; color:var(--ink)}
+  .stat span{font-size:13px; color:var(--dim)}
+
+  /* section */
+  section{padding:70px 0}
+  .sec-head{margin-bottom:38px}
+  .sec-head .k{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold2); font-weight:600}
+  .sec-head h2{font-size:clamp(24px,3vw,34px); margin:8px 0 0; font-weight:800; letter-spacing:-.01em}
+  .sec-head p{color:var(--muted); margin:12px 0 0; max-width:640px}
+
+  /* about */
+  .about-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:28px}
+  @media(max-width:820px){ .about-grid{grid-template-columns:1fr} }
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg2)); border:1px solid var(--line);
+    border-radius:var(--radius); padding:26px}
+  .about p{color:var(--muted); margin:0 0 14px}
+  .creds{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+  .creds li{display:flex; gap:12px; align-items:flex-start; font-size:14.5px}
+  .creds .ic{color:var(--gold2); flex:0 0 auto; margin-top:2px}
+
+  /* projects */
+  .proj{display:grid; gap:22px}
+  .p{position:relative; background:linear-gradient(180deg,var(--panel),var(--bg2)); border:1px solid var(--line);
+     border-radius:20px; padding:30px; overflow:hidden; transition:transform .25s, border-color .25s, box-shadow .25s}
+  .p:hover{transform:translateY(-4px); border-color:#33507f; box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+  .p.flag{border-color:#3a4f7a}
+  .p.flag::before{content:""; position:absolute; inset:0 0 auto 0; height:3px;
+     background:linear-gradient(90deg,var(--gold),var(--blue))}
+  .p .top{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
+  .p .badge{font-size:12px; font-weight:700; letter-spacing:.05em; color:var(--gold2);
+     border:1px solid var(--line); padding:5px 11px; border-radius:999px; background:rgba(200,168,107,.06)}
+  .p h3{font-size:22px; margin:16px 0 6px; font-weight:800}
+  .p .role{font-size:13.5px; color:var(--dim); margin-bottom:14px}
+  .p .desc{color:var(--muted); font-size:15px; margin:0 0 18px}
+  .feat{list-style:none; margin:0 0 20px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  @media(max-width:620px){ .feat{grid-template-columns:1fr} }
+  .feat li{font-size:14px; color:var(--muted); display:flex; gap:9px; align-items:flex-start}
+  .feat .ic{color:var(--ok); flex:0 0 auto; margin-top:3px}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:6px}
+  .tag{font-size:12px; color:var(--muted); background:var(--panel2); border:1px solid var(--line);
+     padding:4px 10px; border-radius:8px}
+  .p .go{display:inline-flex; align-items:center; gap:7px; margin-top:16px; font-weight:600; color:var(--gold2)}
+  .p .go:hover{gap:11px} .p .go{transition:gap .2s}
+
+  /* skills */
+  .skills{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+  @media(max-width:820px){ .skills{grid-template-columns:1fr} }
+  .skill h4{margin:0 0 12px; font-size:15px; color:var(--gold2); font-weight:700}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chip{font-size:13px; padding:6px 12px; border-radius:9px; background:var(--panel2); border:1px solid var(--line); color:var(--ink)}
+
+  /* contact */
+  .contact{text-align:center; background:linear-gradient(180deg,var(--panel),var(--bg2));
+    border:1px solid var(--line); border-radius:24px; padding:56px 28px}
+  .contact h2{font-size:clamp(24px,3.4vw,36px); margin:0 0 12px; font-weight:800}
+  .contact p{color:var(--muted); max-width:520px; margin:0 auto 26px}
+
+  footer{padding:40px 0 60px; border-top:1px solid var(--line); margin-top:20px}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; color:var(--dim); font-size:13.5px}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  /* print / PDF — 애니메이션 요소를 강제 표시하고 색/배경 유지 */
+  @page{ margin:14mm; }
+  @media print{
+    html,body{background:var(--bg) !important;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact}
+    .reveal{opacity:1 !important; transform:none !important; transition:none !important}
+    header.nav{position:static; backdrop-filter:none}
+    nav.links{display:none}
+    .hero{padding:36px 0 28px}
+    section{padding:26px 0}
+    .p, .card, .skill, .contact, .about-grid{break-inside:avoid; page-break-inside:avoid}
+    .p:hover{transform:none}
+    a{color:inherit}
+    .cta, .btn{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark">C</span> TRSN&nbsp;CLARUS <small>· Portfolio</small></a>
+    <nav class="links">
+      <a href="#about">소개</a>
+      <a href="#work">프로젝트</a>
+      <a href="#skills">기술</a>
+      <a href="#contact">연락</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> 번역가 · 통역사 &nbsp;/&nbsp; 바이브코딩으로 AI 번역 시스템을 만드는 사람</span>
+    <h1>언어의 경계를<br /><span class="grad">명료하게</span> 넘습니다.</h1>
+    <p class="lead">사법·비즈니스 한중 번역/통역의 현장 경험을 코드로 옮깁니다. 기업용 AI 번역·검토
+      플랫폼부터 서비스 웹, 브랜드 사이트까지 — 맥락을 이해하는 사람이 만드는 소프트웨어.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">프로젝트 보기 →</a>
+      <a class="btn ghost" href="https://trsnclarus.com/" target="_blank" rel="noopener">trsnclarus.com ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>중국 12년 거주</b><span>현지에서 체득한 언어·문화</span></div>
+      <div class="stat"><b>서강대 · HSK 6급</b><span>중국문화학 · 인증 한중 사법통역</span></div>
+      <div class="stat"><b>바이브코딩</b><span>AI 협업으로 전 제품 직접 구축</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="k">About</div>
+      <h2>번역의 정확성을, 소프트웨어의 확장성으로</h2>
+      <p>"정확한 번역은 단어가 아니라 맥락에서 시작됩니다." 번역·통역 전문성과 엔지니어링을
+        결합해, 기계 번역의 한계를 이해하고 그 위에서 품질을 설계합니다.</p>
+    </div>
+    <div class="about-grid">
+      <div class="card reveal about">
+        <p>조민수(Minsoo Cho)는 <span class="accent">서강대학교</span> 출신으로 중국문화학을
+          전공하고, <span class="accent">중국에서 12년간 거주</span>하며 언어와 문화를 현지에서
+          체득했습니다. 인증 한중 사법통역사로 법원·수사기관·기업 현장에서 통역·번역을 수행해
+          왔습니다.</p>
+        <p>주목할 점 — <span class="accent">전업 개발자(풀스택)가 아닙니다.</span> 이 포트폴리오의
+          모든 소프트웨어(번역 플랫폼 · 품질 평가기 · 운영 콘솔 · 용어집 · 웹)는
+          <span class="accent">바이브코딩(AI 협업 코딩)</span>을 활용해 직접 만들었습니다. 도메인을
+          아는 사람이 AI를 도구로 삼아 완성한, "번역 전문가가 만든 번역 소프트웨어"입니다.</p>
+      </div>
+      <div class="card reveal">
+        <ul class="creds">
+          <li><span class="ic">◆</span> 서강대학교 출신 · 중국문화학 전공</li>
+          <li><span class="ic">◆</span> 중국 12년 거주 — 현지 언어·문화 체득</li>
+          <li><span class="ic">◆</span> 인증 한중(중→한) 사법통역사 · HSK 6급</li>
+          <li><span class="ic">◆</span> 바이브코딩(AI 협업)으로 AI 번역·검토 시스템 구축</li>
+          <li><span class="ic">◆</span> 품질 평가기 · 운영 콘솔 · 웹까지 직접 제작</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="k">Selected Work</div>
+      <h2>대표 프로젝트</h2>
+      <p>번역 <b>플랫폼</b> · 품질 <b>평가기</b> · 운영 <b>콘솔</b>로 이어지는 하나의 번역 품질
+        생태계, 그리고 서비스·브랜드 웹까지. 번역 도메인의 깊은 이해가 그대로 제품이 되었습니다.</p>
+    </div>
+
+    <div class="proj">
+
+      <!-- Flagship -->
+      <article class="p flag reveal">
+        <div class="top">
+          <span class="badge">Flagship · Enterprise</span>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span>
+            <span class="tag">SvelteKit</span><span class="tag">PostgreSQL</span>
+            <span class="tag">vLLM / LiteLLM</span>
+          </div>
+        </div>
+        <h3>철도 기업용 AI 번역·검토 플랫폼</h3>
+        <div class="role">기획 · 설계 · 구현(바이브코딩) — 사내 실운영 시스템</div>
+        <p class="desc">철도 기술문서를 위한 엔드투엔드 번역·품질관리 플랫폼. 다국어 번역, 문서(PDF/DOCX)
+          번역, 다국어 문법 검토, 무참조 품질평가(QE), 그리고 자동 품질 게이트를 하나의 파이프라인으로
+          묶었습니다. 레이어 경계·보안·회복력을 규칙으로 강제하는 프로덕션 아키텍처.</p>
+        <ul class="feat">
+          <li><span class="ic">✓</span> 다국어 번역: 한↔중(번체·대만 시행청별 용어집), 영·러·프</li>
+          <li><span class="ic">✓</span> 문서 번역: PyMuPDF 원본 좌표 유지 · 스캔 PDF OCR(Tesseract)</li>
+          <li><span class="ic">✓</span> 다국어 문법 검토: 구조화 출력 + Word 코멘트 자동 주입</li>
+          <li><span class="ic">✓</span> 무참조 품질평가(QE): COMET-Kiwi 기반 점수화</li>
+          <li><span class="ic">✓</span> AQOS 품질 관리 플레인 · 자동 출고 게이트(G1~G15)</li>
+          <li><span class="ic">✓</span> 글로벌 LLM slot manager · LiteLLM 게이트웨이(Kong)</li>
+          <li><span class="ic">✓</span> 회복력: 과부하 제어 · 회로차단기 · graceful shutdown</li>
+          <li><span class="ic">✓</span> 보안: SSO 인증 · 소유자 접근통제 · 감사 로그</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Docker</span><span class="tag">Kong</span>
+          <span class="tag">PyMuPDF</span><span class="tag">Tesseract</span>
+          <span class="tag">Qwen</span><span class="tag">COMET-Kiwi</span>
+        </div>
+      </article>
+
+      <!-- Chinese Railway Glossary (domain asset) -->
+      <article class="p flag reveal">
+        <div class="top">
+          <span class="badge">Domain Asset · 직접 구축</span>
+          <div class="tags">
+            <span class="tag">번체중문</span><span class="tag">용어 큐레이션</span>
+            <span class="tag">도메인 전문성</span>
+          </div>
+        </div>
+        <h3>철도 번체중문 용어집 — 직접 구축한 핵심 자산</h3>
+        <div class="role">데이터 설계 · 큐레이션 — 번역 플랫폼을 떠받치는 사람의 자산</div>
+        <p class="desc">HSK 6급 사법통역사의 도메인 전문성으로 <span class="accent">직접 큐레이션</span>한
+          철도 기술 용어집. 단순 단어 매칭이 아니라 대만 <span class="accent">4개 지역 시행청별</span>
+          번체중문 표기 차이까지 분기해 반영했습니다. 자동화가 대체할 수 없는, 번역 품질의 근간이
+          되는 사람의 자산입니다.</p>
+        <ul class="feat">
+          <li><span class="ic">✓</span> 약 <b>7,700+ 항목</b>의 철도 기술 용어 정제</li>
+          <li><span class="ic">✓</span> 대만 4개 지역 표기 분기: 臺北 · 臺中 · 高雄 · 桃園</li>
+          <li><span class="ic">✓</span> 다국어: 영↔번체중 · 영↔러 · 영↔불 용어집</li>
+          <li><span class="ic">✓</span> 카테고리 · 우선순위 · 노트 구조의 용어 DB</li>
+          <li><span class="ic">✓</span> 강제 용어 치환으로 번역·검토 게이트와 연동</li>
+          <li><span class="ic">✓</span> 재시도에도 용어집 주입 → 표준 표기 일관성 유지</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">臺北 / 臺中 / 高雄 / 桃園</span>
+          <span class="tag">forced glossary</span><span class="tag">일관성 게이트</span>
+        </div>
+      </article>
+
+      <!-- Clarus Admin Copilot -->
+      <article class="p reveal">
+        <div class="top">
+          <span class="badge">Tooling · Ops Console</span>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span>
+            <span class="tag">Uvicorn</span><span class="tag">CLI</span>
+          </div>
+        </div>
+        <h3>Clarus Admin Copilot — 번역기 운영 콘솔</h3>
+        <div class="role">기획 · 설계 · 개발 — 로컬 관리자 콘솔 (tma CLI + 웹 대시보드)</div>
+        <p class="desc">번역 플랫폼을 대신 운영하기 위한 관리자 콘솔. 비전공 운영자도 한 화면에서
+          상태·리스크·"오늘 할 일"을 파악하고 처리할 수 있게 설계했습니다. 모든 쓰기는
+          <span class="accent">backup → diff → audit log → rollback</span> 경로를 강제하고,
+          권한 플래그로 기능을 세분화해 안전하게 노출합니다.</p>
+        <ul class="feat">
+          <li><span class="ic">✓</span> 운영 대시보드: 상태·리스크 큐·최근 실패·핸드오프 준비도</li>
+          <li><span class="ic">✓</span> 품질평가 · golden set · 회귀 테스트 관리</li>
+          <li><span class="ic">✓</span> 용어집/모델/prompt 변경 승인 (changeset → 승인 → apply)</li>
+          <li><span class="ic">✓</span> Copilot: 콘솔 상태 진단 + "수정 요청서" 자동 생성</li>
+          <li><span class="ic">✓</span> 감사 로그 · 백업 · 롤백 이력 추적</li>
+          <li><span class="ic">✓</span> 후임 운영자용 handoff 패키지 생성</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">psutil</span><span class="tag">PyYAML</span>
+          <span class="tag">RAG / Chroma</span><span class="tag">권한 게이트</span>
+        </div>
+      </article>
+
+      <!-- BLEU Scorer -->
+      <article class="p reveal">
+        <div class="top">
+          <span class="badge">AI · Eval Platform</span>
+          <div class="tags">
+            <span class="tag">Python 3.11</span><span class="tag">Streamlit</span>
+            <span class="tag">Transformers</span>
+          </div>
+        </div>
+        <h3>BLEU Scorer — 기계번역 품질 평가 플랫폼</h3>
+        <div class="role">설계 · 개발 — Streamlit UI + CLI 배치</div>
+        <p class="desc">번역 품질을 여러 표준 지표로 정량 측정·비교하는 평가 플랫폼. 웹 UI와 CLI
+          배치 두 경로로 <span class="accent">BLEU · chrF++ · BERTScore · COMET</span> 점수를
+          산출하고, 모델 간 비교와 회귀를 지원합니다. HuggingFace 오프라인 실행으로 사내
+          폐쇄망에서도 동작.</p>
+        <ul class="feat">
+          <li><span class="ic">✓</span> 4대 지표: BLEU · chrF++ · BERTScore · COMET</li>
+          <li><span class="ic">✓</span> 다국어: 영 ↔ 러 · 불 · 중 · 한</li>
+          <li><span class="ic">✓</span> Streamlit 대시보드 + CLI 배치 채점</li>
+          <li><span class="ic">✓</span> 모델 간 비교 · 회귀 · Excel 리포트</li>
+          <li><span class="ic">✓</span> HuggingFace 오프라인(폐쇄망) 실행</li>
+          <li><span class="ic">✓</span> 감시 프로세스(supervisor)로 무중단 운영</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">sacrebleu</span><span class="tag">BERTScore</span>
+          <span class="tag">unbabel-comet</span><span class="tag">pandas</span>
+          <span class="tag">openpyxl</span>
+        </div>
+      </article>
+
+      <!-- TRSN CLARUS -->
+      <article class="p reveal">
+        <div class="top">
+          <span class="badge">Service · Web</span>
+          <div class="tags"><span class="tag">Web</span><span class="tag">브랜딩</span></div>
+        </div>
+        <h3>TRSN CLARUS — 한중 번역·통역 서비스</h3>
+        <div class="role">기획 · 디자인 · 개발 — trsnclarus.com</div>
+        <p class="desc">"언어의 경계를 명료하게 넘다." 사법·비즈니스 한중 번역/통역 전문 서비스의
+          공식 사이트. 기계 번역과 차별화되는 "맥락 기반 정확성"을 메시지로 설계하고, 서비스·프로세스·
+          이력·AI 번역 검수까지 담았습니다.</p>
+        <ul class="feat">
+          <li><span class="ic">✓</span> 한중 번역 / 사법·비즈니스 통역 / 전문 문서 번역</li>
+          <li><span class="ic">✓</span> AI 번역 결과 품질 검수(감수·교정) 서비스</li>
+          <li><span class="ic">✓</span> 미니멀·신뢰 중심의 이중언어 UX</li>
+          <li><span class="ic">✓</span> 웹 개발 · Python 자동화 서비스 소개</li>
+        </ul>
+        <a class="go" href="https://trsnclarus.com/" target="_blank" rel="noopener">사이트 방문 ↗</a>
+      </article>
+
+      <!-- Terroir & Proof -->
+      <article class="p reveal">
+        <div class="top">
+          <span class="badge">Brand · Web</span>
+          <div class="tags"><span class="tag">Static Site</span><span class="tag">GitHub Pages</span></div>
+        </div>
+        <h3>Terroir &amp; Proof — 무알코올 블렌딩 티 브랜드</h3>
+        <div class="role">브랜드 웹 기획 · 디자인 · 개발 — trsnclarus.com/terroir-proof</div>
+        <p class="desc">위스키의 경험을 무알코올로 재해석한 프리미엄 블렌딩 티 브랜드(떼루아앤프루프)의
+          공식 브랜드 페이지. "술 없이도 함께 즐기는 대화의 시간"이라는 감성을 이중언어로 담은
+          라이프스타일 중심의 정적 사이트.</p>
+        <ul class="feat">
+          <li><span class="ic">✓</span> 브랜드 스토리 · 리추얼(5단계) · 블렌드 가이드</li>
+          <li><span class="ic">✓</span> 제품 라인업(Quiet Street: 10Y·12Y·NAS) 소개</li>
+          <li><span class="ic">✓</span> 미니멀 감성 비주얼 · 이중언어(EN/KO)</li>
+          <li><span class="ic">✓</span> 정적 사이트 · GitHub Pages 배포</li>
+        </ul>
+        <a class="go" href="https://trsnclarus.com/terroir-proof/" target="_blank" rel="noopener">사이트 방문 ↗</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="k">Capabilities</div>
+      <h2>기술 스택</h2>
+      <p>제품이 실제로 동작하는 스택입니다. 전업 엔지니어가 아니며, 코드는
+        <span class="accent">바이브코딩(AI 협업)</span>으로 직접 구현했습니다 —
+        방향을 잡고 AI를 도구로 부리는 능력이 핵심입니다.</p>
+    </div>
+    <div class="skills">
+      <div class="skill card reveal">
+        <h4>Backend &amp; Infra</h4>
+        <div class="chips">
+          <span class="chip">Python</span><span class="chip">FastAPI</span>
+          <span class="chip">PostgreSQL</span><span class="chip">Docker</span>
+          <span class="chip">Kong</span><span class="chip">비동기 워커/큐</span>
+        </div>
+      </div>
+      <div class="skill card reveal">
+        <h4>Frontend</h4>
+        <div class="chips">
+          <span class="chip">SvelteKit</span><span class="chip">TypeScript</span>
+          <span class="chip">반응형 UI</span><span class="chip">브랜드 웹</span>
+          <span class="chip">정적 사이트</span>
+        </div>
+      </div>
+      <div class="skill card reveal">
+        <h4>AI / Translation</h4>
+        <div class="chips">
+          <span class="chip">vLLM · LiteLLM</span><span class="chip">Qwen</span>
+          <span class="chip">프롬프트 엔지니어링</span><span class="chip">RAG/용어집</span>
+          <span class="chip">품질평가(QE)</span><span class="chip">GEC 검토</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <h2>함께 만들고 싶은 것이 있으신가요?</h2>
+      <p>번역·통역, AI 번역 시스템, 업무 자동화, 브랜드 웹 — 언어와 기술이 만나는 지점에서
+        도와드립니다.</p>
+      <div class="cta" style="justify-content:center">
+        <a class="btn primary" href="https://trsnclarus.com/" target="_blank" rel="noopener">TRSN CLARUS ↗</a>
+        <a class="btn ghost" href="https://trsnclarus.com/terroir-proof/" target="_blank" rel="noopener">Terroir &amp; Proof ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr"></span> 조민수 · TRSN CLARUS. All rights reserved.</div>
+    <div>언어의 경계를 명료하게 넘다.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay = (i%3 * 80) + 'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
