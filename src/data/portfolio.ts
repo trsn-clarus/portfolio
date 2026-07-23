@@ -123,6 +123,20 @@ export const projects: Project[] = [
     bottomTags: [],
     link: { href: "https://trsnclarus.com/terroir-proof/", label: "사이트 방문 ↗" },
   },
+  {
+    badge: "Field Work · Localization & QC",
+    topTags: ["더클라우드팩토리", "베이퍼스유나이티드"],
+    title: "닥터베이프 크래프트 일회용 전자담배 글로벌 론칭",
+    role: "통번역 · 해외 파트너 커뮤니케이션 · 품질검사(QC) — 2018.09 – 2021.03",
+    desc: "소프트웨어를 만들기 전, 이 도메인 전문성은 실제 제품 현장에서 시작됐습니다. 닥터베이프(Dr. Vape)가 출시한 크래프트 일회용 전자담배 프로젝트에서 중국·홍콩 협력업체와의 실시간 통번역, 계약서·카탈로그·제품 사양서 번역, 생산 단계 품질검사(QC)를 담당하며 언어와 제품 품질이 만나는 지점을 직접 경험했습니다.",
+    features: [
+      "중국·홍콩 협력업체 실시간 통번역",
+      "계약서·카탈로그·제품 사양서 번역",
+      "생산 단계 품질검사(QC) 기준 확인·소통",
+      "신제품 마케팅 콘텐츠 현지화",
+    ],
+    bottomTags: ["한·중·영 3개 언어", "품질검사(QC)", "해외 파트너 커뮤니케이션"],
+  },
 ];
 
 export const skillGroups: { title: string; chips: string[] }[] = [
