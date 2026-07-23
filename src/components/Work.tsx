@@ -12,10 +12,10 @@ export function Work() {
           만든 웹. 대부분 기획부터 구현, 품질검토까지 혼자 맡았습니다.
         </SectionHead>
 
-        <div className="proj">
+        <div className="entries">
           {projects.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 2) * 0.08}>
-              <ProjectCard project={p} index={i} total={projects.length} />
+            <Reveal key={p.title}>
+              <ProjectCard project={p} index={i} />
             </Reveal>
           ))}
         </div>

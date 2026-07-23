@@ -11,16 +11,14 @@ export function Skills() {
           <span className="accent">AI 코딩 도구(Claude · Codex)</span>를 써서 직접
           구현했습니다.
         </SectionHead>
-        <div className="skills">
-          {skillGroups.map((g, i) => (
-            <Reveal key={g.title} delay={(i % 4) * 0.06}>
-              <div className="skill card">
+        <div className="stack">
+          {skillGroups.map((g) => (
+            <Reveal key={g.title}>
+              <div className="stack-row">
                 <h4>{g.title}</h4>
-                <div className="chips">
+                <div className="list">
                   {g.chips.map((c) => (
-                    <span className="chip" key={c}>
-                      {c}
-                    </span>
+                    <span key={c}>{c}</span>
                   ))}
                 </div>
               </div>

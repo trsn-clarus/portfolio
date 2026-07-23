@@ -16,7 +16,7 @@ export function Nav() {
     <header className="nav" data-scrolled={scrolled}>
       <div className="wrap">
         <a className="brand" href="#top">
-          <span className="mark">C</span> TRSN&nbsp;CLARUS <small>PORTFOLIO</small>
+          TRSN&nbsp;CLARUS <small>조민수</small>
         </a>
         <nav className="links">
           <a href="#about">소개</a>

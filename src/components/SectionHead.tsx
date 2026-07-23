@@ -13,11 +13,12 @@ export function SectionHead({ index, kicker, title, children }: Props) {
     <Reveal className="sec-head">
       <div className="sec-meta">
         <span className="idx">{index}</span>
-        <span className="rule" />
         <span className="kicker">{kicker}</span>
       </div>
-      <h2>{title}</h2>
-      {children && <p>{children}</p>}
+      <div>
+        <h2>{title}</h2>
+        {children && <p className="intro">{children}</p>}
+      </div>
     </Reveal>
   );
 }

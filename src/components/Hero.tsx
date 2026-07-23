@@ -1,53 +1,30 @@
 "use client";
 
-import { useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useMotionTemplate,
-  useSpring,
-  type Variants,
-} from "motion/react";
-import { ArrowRight, ArrowUpRight } from "./icons";
-import { Magnetic } from "./Magnetic";
+import { motion, type Variants } from "motion/react";
+import { ArrowUpRight } from "./icons";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.04 } },
 };
 const lineUp: Variants = {
-  hidden: { y: "110%" },
-  show: { y: "0%", transition: { duration: 0.9, ease } },
+  hidden: { y: "108%" },
+  show: { y: "0%", transition: { duration: 0.85, ease } },
 };
 const fade: Variants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 12 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
 };
 
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const mx = useMotionValue(-400);
-  const my = useMotionValue(-400);
-  const sx = useSpring(mx, { stiffness: 90, damping: 22 });
-  const sy = useSpring(my, { stiffness: 90, damping: 22 });
-  const background = useMotionTemplate`radial-gradient(480px circle at ${sx}px ${sy}px, rgba(230,207,156,0.10), transparent 68%)`;
-
-  const onMove = (e: React.PointerEvent<HTMLElement>) => {
-    const r = ref.current?.getBoundingClientRect();
-    if (!r) return;
-    mx.set(e.clientX - r.left);
-    my.set(e.clientY - r.top);
-  };
-
   return (
-    <section className="hero" ref={ref} onPointerMove={onMove}>
-      <motion.div className="hero-spot" style={{ background }} aria-hidden />
+    <section className="hero">
       <div className="wrap">
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.span className="eyebrow" variants={fade}>
-            <span className="dot" /> 한중 번역가 · 통역사
+            <span className="dot" /> 한중 번역가 · 통역사 — 조민수
           </motion.span>
 
           <h1>
@@ -70,35 +47,31 @@ export function Hero() {
           </motion.p>
 
           <motion.div className="cta" variants={fade}>
-            <Magnetic>
-              <a className="btn primary" href="#work">
-                프로젝트 보기 <ArrowRight />
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
-                className="btn ghost"
-                href="https://trsnclarus.com/"
-                target="_blank"
-                rel="noopener"
-              >
-                trsnclarus.com <ArrowUpRight />
-              </a>
-            </Magnetic>
+            <a className="link primary" href="#work">
+              프로젝트 보기
+            </a>
+            <a
+              className="link"
+              href="https://trsnclarus.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              trsnclarus.com <ArrowUpRight />
+            </a>
           </motion.div>
 
           <motion.div className="stats" variants={fade}>
             <div className="stat">
-              <b>중국 12년 거주</b>
-              <span>현지에서 체득한 언어·문화</span>
+              <b>중국 12년</b>
+              <span>현지 거주</span>
             </div>
             <div className="stat">
-              <b>서강대 · HSK 6급</b>
-              <span>중국문화학 · 인증 한중 사법통역</span>
+              <b>HSK 6급</b>
+              <span>인증 한중 사법통역</span>
             </div>
             <div className="stat">
-              <b>바이브코딩</b>
-              <span>AI 협업으로 전 제품 직접 구축</span>
+              <b>서강대</b>
+              <span>중국문화학</span>
             </div>
           </motion.div>
         </motion.div>
