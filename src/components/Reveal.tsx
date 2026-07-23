@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
+import { EASE } from "@/lib/motion";
 
 type RevealProps = {
   children: ReactNode;
@@ -12,18 +13,17 @@ type RevealProps = {
 };
 
 /**
- * Scroll-triggered reveal wrapper (replaces the original IntersectionObserver).
- * Renders a plain div so any hover-transformed child (e.g. `.p`) keeps its own
- * CSS transform without fighting Motion's inline transform.
+ * Scroll-triggered reveal. Content rises and resolves out of a soft blur —
+ * a slow, developed-photograph settle rather than a snap.
  */
-export function Reveal({ children, className, delay = 0, y = 22 }: RevealProps) {
+export function Reveal({ children, className, delay = 0, y = 26 }: RevealProps) {
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
+      initial={{ opacity: 0, y, filter: "blur(6px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
+      transition={{ duration: 0.95, ease: EASE, delay }}
     >
       {children}
     </motion.div>

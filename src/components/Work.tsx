@@ -14,7 +14,7 @@ export function Work() {
 
         <div className="entries">
           {projects.map((p, i) => (
-            <Reveal key={p.title}>
+            <Reveal key={p.title} delay={Math.min(i * 0.05, 0.15)}>
               <ProjectCard project={p} index={i} />
             </Reveal>
           ))}

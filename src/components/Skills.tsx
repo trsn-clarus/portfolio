@@ -12,8 +12,8 @@ export function Skills() {
           구현했습니다.
         </SectionHead>
         <div className="stack">
-          {skillGroups.map((g) => (
-            <Reveal key={g.title}>
+          {skillGroups.map((g, i) => (
+            <Reveal key={g.title} delay={i * 0.08}>
               <div className="stack-row">
                 <h4>{g.title}</h4>
                 <div className="list">

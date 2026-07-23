@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MotionProvider } from "@/components/MotionProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://trsnclarus.com"),
@@ -34,7 +35,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }
