@@ -630,6 +630,18 @@ section[id] {
   color: var(--ink-3);
   margin-bottom: var(--s5);
 }
+.chapter-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: var(--measure-wide);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  margin-bottom: var(--s6);
+  background: var(--graphite);
+}
 .chapter-sp {
   display: grid;
   gap: var(--s3);

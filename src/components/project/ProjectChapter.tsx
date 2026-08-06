@@ -26,6 +26,19 @@ export function ProjectChapter({ project }: { project: Project }) {
         <h3 className="chapter-title">{project.titleKo}</h3>
         <p className="chapter-role">{project.role}</p>
 
+        {project.image && (
+          // eslint-disable-next-line @next/next/no-img-element -- static export, images.unoptimized
+          <img
+            className="chapter-image"
+            src={project.image.src}
+            alt={project.image.alt}
+            width={project.image.width}
+            height={project.image.height}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+
         <dl className="chapter-sp">
           <div>
             <dt>Situation</dt>

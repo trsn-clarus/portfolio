@@ -6,6 +6,13 @@ export type ProjectLink = {
   external?: boolean;
 };
 
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
 export type Project = {
   id: string;
   index: string;
@@ -22,6 +29,7 @@ export type Project = {
   outcomeKo: string;
   tags: string[];
   links?: ProjectLink[];
+  image?: ProjectImage;
   weight: "primary" | "secondary";
   state: SectionState;
 };
@@ -109,23 +117,38 @@ export const projects: Project[] = [
     org: "개인 프로젝트",
     period: "2025 – 현재",
     role: "브랜드 전략 · 정보 구조 · 콘텐츠 구조 · 웹 개발",
-    situationKo: "회복이라는 감각적이고 추상적인 개념을 전달할 브랜드가 필요했습니다.",
+    situationKo:
+      "차 사셰 브랜드 terroir & proof에서 출발해, 회복이라는 감각적이고 추상적인 경험을 전달하는 브랜드 SOOM으로 재편하는 작업이었습니다.",
     problemKo:
-      '제품을 나열하는 방식으로는 "감각을 통해 회복 경험을 설계한다"는 정체성이 전달되지 않았습니다.',
+      '차와 음료라는 출발점 때문에 자칫 "티 제품을 파는 사이트"로 읽힐 위험이 있었고, 제품을 나열하는 방식으로는 "감각을 통해 회복 경험을 설계한다"는 정체성이 전달되지 않았습니다.',
     actionKo: [
-      "Taste · Scent · Sound · Space · Body, 다섯 감각을 축으로 브랜드 정보 구조를 설계했습니다",
-      "Ambient Futurism 컨셉의 반응형 웹을 구현했습니다",
+      "SOOM(브랜드) → Recovery(핵심 경험) → Languages(Taste·Scent·Sound·Space·Body) → Collections(Quiet Street 외 4개)로 이어지는 브랜드 위계를 설계했습니다",
+      "이전 브랜드(terroir & proof)를 완전히 지우지 않으면서도 메인 브랜드처럼 보이지 않도록 노출 범위를 문서로 정리했습니다",
+      "콘텐츠는 데이터 파일 하나, 공개 범위는 릴리스 feature flag 파일 하나로 관리되도록 구조화해 카피 수정과 단계적 공개를 분리했습니다",
+      "아직 공개하지 않는 섹션은 <template>으로 감싸 JS 유무와 무관하게 접근성 트리·DOM·이미지 요청에서 완전히 제외되도록 구성했습니다",
+      "9개 환경 상태(색·밀도·흐름·확산)를 CSS 토큰 하나로 선언해 인터페이스와 배경 환경이 항상 같은 값을 참조하도록 만들었습니다",
       "모바일 이미지 왜곡 문제를 해결하고 신뢰감 있는 타이포그래피 시스템을 만들었습니다",
+      "외부 CDN 없이 런타임 의존 라이브러리까지 저장소에 포함해 전부 자체 호스팅했습니다",
       "접근성과 prefers-reduced-motion 대응을 포함했습니다",
       "GitHub Pages에 정적 사이트로 배포했습니다",
     ],
-    evidenceKo: ["5개 감각 축의 정보 구조", "반응형 · 접근성 대응 완료"],
+    evidenceKo: [
+      "V1 · Brand Foundation 공개",
+      "5개 감각 언어 · 5개 컬렉션 · 9개 환경 상태의 정보 구조",
+      "반응형 · 접근성 대응 완료",
+    ],
     outcomeKo: "브랜드 전략부터 구현까지 혼자 맡아 하나의 세계관으로 완성했습니다.",
     tags: ["Brand Strategy", "Information Architecture", "Motion Design", "Accessibility"],
     links: [
       { href: "https://trsnclarus.com/soom/", label: "SOOM 방문", external: true },
       { href: "https://github.com/trsn-clarus/soom", label: "GitHub", external: true },
     ],
+    image: {
+      src: "/portfolio/work/soom-hero.jpg",
+      alt: "SOOM 웹사이트 히어로 화면 — \"Recovery has many languages.\"",
+      width: 1600,
+      height: 1000,
+    },
     weight: "primary",
     state: "people",
   },
