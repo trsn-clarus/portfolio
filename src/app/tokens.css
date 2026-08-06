@@ -1,0 +1,168 @@
+/* =============================================================================
+ * TRSN CLARUS — Portfolio · design tokens
+ * -----------------------------------------------------------------------------
+ * Shares its material with SOOM — carbon/graphite ground, mineral ink, low-
+ * saturation accents that read as light rather than fill — but this page is
+ * read and judged, not lived in. So the field stays quieter than SOOM's: fewer
+ * states, less density, and every accent here answers to a piece of career
+ * information (a stage, a project, a role), never to atmosphere alone.
+ * ========================================================================== */
+
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7f97ad;
+}
+@property --f-tint {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #3a4652;
+}
+
+:root {
+  /* ---- Ground — never pure black ---------------------------------------- */
+  --carbon: #0a0d11;
+  --graphite: #12161c;
+  --slate: #1a212a;
+  --slate-2: #212a34;
+
+  /* ---- Ink ---------------------------------------------------------------*/
+  --mineral: #e6e8e6;
+  --ink: var(--mineral);
+  --ink-2: #aeb6bf;
+  --ink-3: #89939f;
+  --ink-dim: #5b6570;
+
+  /* ---- Lines --------------------------------------------------------------*/
+  --line: rgba(230, 232, 230, 0.13);
+  --line-strong: rgba(230, 232, 230, 0.24);
+
+  /* ---- Section accents — low-saturation signals, not fills ---------------
+     Each maps to one stage of the career arc; the ambient field and the
+     small in-content signals (kicker dots, rules, link underlines) both read
+     off the same --accent / --f-tint pair, so nothing narrates two stories. */
+  --accent: #7f97ad; /* intro — cool mineral blue   */
+  --f-tint: #3a4652;
+  --f-density: 0.26;
+
+  /* ---- Type ---------------------------------------------------------------
+     Pretendard for everything read; Instrument Sans for the handful of
+     English lines meant to sound like a voice, not a label; Plex Mono for
+     years, indices and metrics alone. 400 is the floor — nothing lighter is
+     ever set as body, on a dark field a thinner Hangul stem just looks
+     unfinished. */
+  --font: var(--font-pretendard), system-ui, -apple-system, "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+  --font-en: var(--font-instrument), var(--font-pretendard), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, Consolas,
+    monospace;
+
+  --wt-regular: 400;
+  --wt-book: 450;
+  --wt-medium: 500;
+  --wt-semi: 600;
+
+  --t-hero: clamp(2.25rem, 1.1rem + 5.2vw, 4.75rem);
+  --t-d1: clamp(1.75rem, 1rem + 3vw, 3rem);
+  --t-d2: clamp(1.375rem, 1rem + 1.6vw, 2rem);
+  --t-d3: clamp(1.125rem, 0.95rem + 0.8vw, 1.375rem);
+  --t-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem);
+  --t-body: clamp(1rem, 0.97rem + 0.16vw, 1.0625rem);
+  --t-small: clamp(0.875rem, 0.86rem + 0.1vw, 0.9375rem);
+  --t-mono: clamp(0.78125rem, 0.77rem + 0.06vw, 0.8125rem);
+
+  --lh-hero: 1.12;
+  --lh-display: 1.24;
+  --lh-title: 1.4;
+  --lh-body: 1.75;
+  --lh-tight: 1.5;
+
+  --track-display: -0.012em;
+  --track-ko: 0em;
+  --track-label: 0.045em;
+  --track-mark: 0.28em;
+  --track-mono: 0.05em;
+
+  --measure: 58ch;
+  --measure-wide: 66ch;
+  --measure-narrow: 40ch;
+
+  /* ---- Space ---------------------------------------------------------------*/
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+  --s8: 4.5rem;
+  --s9: 6.5rem;
+  --s10: 9rem;
+  --s-block: clamp(4rem, 2rem + 6vw, 8rem);
+
+  /* ---- Layout ---------------------------------------------------------------*/
+  --maxw: 1200px;
+  --gutter: clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
+  --meta-col: 180px;
+  --nav-h: 64px;
+
+  /* ---- Motion — instant acknowledgement, long settle ------------------------*/
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.33, 0, 0.15, 1);
+  --t-state: 900ms;
+  --t-ui: 220ms;
+  --t-focus: 900ms;
+
+  color-scheme: dark;
+}
+
+/* =============================================================================
+ * Ambient states
+ * -----------------------------------------------------------------------------
+ * Set on a data-ambient-state attribute at the field root by
+ * SectionStateProvider as each section crosses the viewport centre. The field
+ * (AmbientField) and any inline signal (a kicker dot, a hairline) read the
+ * same two variables, so the environment and the copy never disagree.
+ * ========================================================================== */
+
+[data-ambient-state="intro"] {
+  --accent: #7f97ad;
+  --f-tint: #3a4652;
+  --f-density: 0.24;
+}
+/* Language — muted indigo: where words and culture were learned first. */
+[data-ambient-state="language"] {
+  --accent: #8b8fc4;
+  --f-tint: #3c3d5c;
+  --f-density: 0.28;
+}
+/* Operations — low amber: the warmth of a shop floor and a shipping desk. */
+[data-ambient-state="operations"] {
+  --accent: #c99a5c;
+  --f-tint: #5a4526;
+  --f-density: 0.3;
+}
+/* Data — slate cyan: language once it becomes something measured. */
+[data-ambient-state="data"] {
+  --accent: #6fa4ac;
+  --f-tint: #24444a;
+  --f-density: 0.26;
+}
+/* AI Systems — cold blue-grey: the current, most exacting register. */
+[data-ambient-state="ai-systems"] {
+  --accent: #7f97ad;
+  --f-tint: #2c3944;
+  --f-density: 0.22;
+}
+/* People — muted moss: community and mentoring, held at a low register. */
+[data-ambient-state="people"] {
+  --accent: #8ea184;
+  --f-tint: #3a4232;
+  --f-density: 0.26;
+}
+/* Rest — contact. Almost no colour left; the page settles before it ends. */
+[data-ambient-state="rest"] {
+  --accent: #97a1ab;
+  --f-tint: #232a30;
+  --f-density: 0.16;
+}
