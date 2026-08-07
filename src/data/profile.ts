@@ -13,7 +13,7 @@ export type Profile = {
 
 export const profile: Profile = {
   nameKo: "조민수",
-  nameEn: "Minsoo Cho",
+  nameEn: "Clarus Cho",
   identity: "Clarus",
   roleDescriptor: "AI Translation Systems · Global Communication · Product Operations",
   heroStatementKo: "언어로 시작해, 데이터를 거쳐,\n실제로 작동하는 시스템을 만듭니다.",

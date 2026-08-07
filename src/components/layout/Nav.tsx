@@ -80,7 +80,7 @@ export function Nav() {
     <header className="nav" data-scrolled={scrolled}>
       <div className="wrap nav-row">
         <a className="brand" href="#intro">
-          TRSN&nbsp;CLARUS <small>조민수 · Minsoo Cho</small>
+          TRSN&nbsp;CLARUS <small>조민수 · Clarus Cho</small>
         </a>
 
         <nav className="nav-links" aria-label="주요 섹션">

@@ -1,6 +1,6 @@
 # TRSN CLARUS — Portfolio
 
-조민수(Minsoo Cho)의 포트폴리오. **Personal Ambient Archive** — SOOM과 시각 언어를
+조민수(Clarus Cho)의 포트폴리오. **Personal Ambient Archive** — SOOM과 시각 언어를
 공유하되, 경력의 방향성(언어 → 운영 → 데이터 → AI 시스템)을 정보 중심으로 보여주는
 Next.js(App Router) + Motion 사이트. GitHub Pages(정적 export)로 배포됩니다.
 

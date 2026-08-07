@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { FocusText, FocusItem } from "@/components/motion/FocusText";
 import { Reveal } from "@/components/motion/Reveal";
 import { Section } from "@/components/layout/Section";
@@ -54,16 +53,6 @@ export function Hero() {
           </FocusItem>
         </FocusText>
 
-        <Reveal className="hero-portrait" delay={0.12} y={12}>
-          <Image
-            src="/portfolio/profile.png"
-            alt={`${profile.nameKo} · ${profile.nameEn}`}
-            width={350}
-            height={450}
-            priority
-            sizes="(max-width: 760px) 126px, 168px"
-          />
-        </Reveal>
       </div>
 
       <Reveal className="hero-stats" delay={0.25}>
