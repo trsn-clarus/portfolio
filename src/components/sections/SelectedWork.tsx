@@ -8,8 +8,8 @@ export function SelectedWork() {
     <section id="work" aria-labelledby="work-title" className="sect">
       <div className="wrap">
         <SectionHead id="work-title" index="02" kicker="Selected Work" title="대표 작업">
-          철도 AI 번역 시스템부터 브랜드 웹까지, 언어와 데이터를 다루는 문제를 실제로 작동하는
-          도구로 만든 기록입니다.
+          철도 AI 번역 시스템부터 영상 자막과 브랜드 웹까지, 언어와 데이터를 다루는 문제를 실제로
+          작동하는 결과물로 만든 기록입니다.
         </SectionHead>
 
         <div className="chapters">

@@ -174,4 +174,38 @@ export const projects: Project[] = [
     weight: "secondary",
     state: "operations",
   },
+  {
+    id: "hle-esports-chinese-subtitles",
+    index: "06",
+    category: "Audiovisual Localization",
+    titleKo: "한화생명e스포츠 영상 중국어 자막",
+    org: "한화생명e스포츠",
+    period: "YouTube · 2편",
+    role: "중국어 간체 · 번체 자막 번역",
+    situationKo:
+      "한화생명e스포츠 YouTube 영상 2편의 중국어권 시청자를 위한 자막 작업입니다.",
+    problemKo:
+      "선수의 말과 영상의 맥락을 중국어권 시청자에게 전달하면서 간체와 번체 두 표기를 함께 제공해야 했습니다.",
+    actionKo: [
+      "「지금까지 프로게이머 피넛이었습니다」 중국어 간체 · 번체 자막을 제작했습니다",
+      "「𝐓𝐡𝐚𝐧𝐤 𝐘𝐨𝐮, 𝐕𝐢𝐩𝐞𝐫」 중국어 간체 · 번체 자막을 제작했습니다",
+    ],
+    evidenceKo: ["중국어 간체 · 번체 자막 2편", "한화생명e스포츠 YouTube 공개 영상"],
+    outcomeKo: "두 영상의 중국어 간체 · 번체 자막을 완성했습니다.",
+    tags: ["Simplified Chinese", "Traditional Chinese", "Subtitle Localization", "Esports"],
+    links: [
+      {
+        href: "https://www.youtube.com/watch?v=gBMNCYduClY&t=589s",
+        label: "지금까지 프로게이머 피넛이었습니다",
+        external: true,
+      },
+      {
+        href: "https://www.youtube.com/watch?v=TL3nu6QBKbI",
+        label: "Thank You, Viper",
+        external: true,
+      },
+    ],
+    weight: "secondary",
+    state: "language",
+  },
 ];
