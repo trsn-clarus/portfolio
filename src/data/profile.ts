@@ -6,8 +6,6 @@ export type Profile = {
   heroStatementKo: string;
   heroStatementEn: string;
   heroSupportingKo: string;
-  currentRoleKo: string;
-  currentRoleHref?: string;
   stats: { value: string; label: string }[];
 };
 
@@ -20,7 +18,6 @@ export const profile: Profile = {
   heroStatementEn: "I translate complexity into working systems.",
   heroSupportingKo:
     "중국에서 익힌 언어와 문화, 해외 사업 현장에서 배운 운영 감각, 그리고 AI와 데이터 기술을 연결해 조직이 실제로 사용할 수 있는 결과물을 만듭니다.",
-  currentRoleKo: "Hyundai Rotem · AI Application Team",
   stats: [
     { value: "12 yrs", label: "Lived in China" },
     { value: "7,750", label: "Terminology pairs built" },

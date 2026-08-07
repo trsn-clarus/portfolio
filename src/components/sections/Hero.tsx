@@ -41,8 +41,6 @@ export function Hero() {
           </FocusItem>
           <FocusItem className="hero-support">{profile.heroSupportingKo}</FocusItem>
 
-          <FocusItem className="hero-role">{profile.currentRoleKo}</FocusItem>
-
           <FocusItem className="hero-cta">
             <a className="link primary" href="#work">
               Selected Work

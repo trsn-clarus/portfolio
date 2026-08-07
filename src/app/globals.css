@@ -447,13 +447,6 @@ section[id] {
   line-height: var(--lh-body);
   margin-bottom: var(--s6);
 }
-.hero-role {
-  font-family: var(--font-mono);
-  font-size: var(--t-mono);
-  letter-spacing: var(--track-mono);
-  color: var(--ink-3);
-  margin-bottom: var(--s7);
-}
 .hero-cta {
   display: flex;
   gap: 28px;
