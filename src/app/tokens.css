@@ -41,9 +41,31 @@
      Each maps to one stage of the career arc; the ambient field and the
      small in-content signals (kicker dots, rules, link underlines) both read
      off the same --accent / --f-tint pair, so nothing narrates two stories. */
-  --accent: #7f97ad; /* intro — cool mineral blue   */
-  --f-tint: #3a4652;
-  --f-density: 0.26;
+  --ambient-intro-accent: #7f97ad;
+  --ambient-intro-tint: #3a4652;
+  --ambient-intro-density: 0.24;
+  --ambient-language-accent: #8b8fc4;
+  --ambient-language-tint: #3c3d5c;
+  --ambient-language-density: 0.28;
+  --ambient-operations-accent: #c99a5c;
+  --ambient-operations-tint: #5a4526;
+  --ambient-operations-density: 0.3;
+  --ambient-data-accent: #6fa4ac;
+  --ambient-data-tint: #24444a;
+  --ambient-data-density: 0.26;
+  --ambient-ai-systems-accent: #7f97ad;
+  --ambient-ai-systems-tint: #2c3944;
+  --ambient-ai-systems-density: 0.22;
+  --ambient-people-accent: #8ea184;
+  --ambient-people-tint: #3a4232;
+  --ambient-people-density: 0.26;
+  --ambient-rest-accent: #97a1ab;
+  --ambient-rest-tint: #232a30;
+  --ambient-rest-density: 0.16;
+
+  --accent: var(--ambient-intro-accent); /* intro — cool mineral blue */
+  --f-tint: var(--ambient-intro-tint);
+  --f-density: var(--ambient-intro-density);
 
   /* ---- Type ---------------------------------------------------------------
      Pretendard for everything read; Instrument Sans for the handful of
@@ -108,8 +130,6 @@
 
   /* ---- Motion — instant acknowledgement, long settle ------------------------*/
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-soft: cubic-bezier(0.33, 0, 0.15, 1);
-  --t-state: 900ms;
   --t-ui: 220ms;
   --t-focus: 900ms;
 
@@ -119,50 +139,50 @@
 /* =============================================================================
  * Ambient states
  * -----------------------------------------------------------------------------
- * Set on a data-ambient-state attribute at the field root by
- * SectionStateProvider as each section crosses the viewport centre. The field
- * (AmbientField) and any inline signal (a kicker dot, a hairline) read the
- * same two variables, so the environment and the copy never disagree.
+ * These selectors are the no-JS and reduced-motion fallback. During normal
+ * scrolling SectionStateProvider reads the state tokens above and blends the
+ * same --accent / --f-tint / --f-density values between section centres, so
+ * the environment and the inline signals still share one source of truth.
  * ========================================================================== */
 
 [data-ambient-state="intro"] {
-  --accent: #7f97ad;
-  --f-tint: #3a4652;
-  --f-density: 0.24;
+  --accent: var(--ambient-intro-accent);
+  --f-tint: var(--ambient-intro-tint);
+  --f-density: var(--ambient-intro-density);
 }
 /* Language — muted indigo: where words and culture were learned first. */
 [data-ambient-state="language"] {
-  --accent: #8b8fc4;
-  --f-tint: #3c3d5c;
-  --f-density: 0.28;
+  --accent: var(--ambient-language-accent);
+  --f-tint: var(--ambient-language-tint);
+  --f-density: var(--ambient-language-density);
 }
 /* Operations — low amber: the warmth of a shop floor and a shipping desk. */
 [data-ambient-state="operations"] {
-  --accent: #c99a5c;
-  --f-tint: #5a4526;
-  --f-density: 0.3;
+  --accent: var(--ambient-operations-accent);
+  --f-tint: var(--ambient-operations-tint);
+  --f-density: var(--ambient-operations-density);
 }
 /* Data — slate cyan: language once it becomes something measured. */
 [data-ambient-state="data"] {
-  --accent: #6fa4ac;
-  --f-tint: #24444a;
-  --f-density: 0.26;
+  --accent: var(--ambient-data-accent);
+  --f-tint: var(--ambient-data-tint);
+  --f-density: var(--ambient-data-density);
 }
 /* AI Systems — cold blue-grey: the current, most exacting register. */
 [data-ambient-state="ai-systems"] {
-  --accent: #7f97ad;
-  --f-tint: #2c3944;
-  --f-density: 0.22;
+  --accent: var(--ambient-ai-systems-accent);
+  --f-tint: var(--ambient-ai-systems-tint);
+  --f-density: var(--ambient-ai-systems-density);
 }
 /* People — muted moss: community and mentoring, held at a low register. */
 [data-ambient-state="people"] {
-  --accent: #8ea184;
-  --f-tint: #3a4232;
-  --f-density: 0.26;
+  --accent: var(--ambient-people-accent);
+  --f-tint: var(--ambient-people-tint);
+  --f-density: var(--ambient-people-density);
 }
 /* Rest — contact. Almost no colour left; the page settles before it ends. */
 [data-ambient-state="rest"] {
-  --accent: #97a1ab;
-  --f-tint: #232a30;
-  --f-density: 0.16;
+  --accent: var(--ambient-rest-accent);
+  --f-tint: var(--ambient-rest-tint);
+  --f-density: var(--ambient-rest-density);
 }
