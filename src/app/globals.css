@@ -184,7 +184,6 @@ svg {
       color-mix(in srgb, var(--accent) 16%, transparent),
       transparent 72%
     );
-  transition: background-image var(--t-state) var(--ease-soft);
 }
 .ambient-fallback::after {
   content: "";
