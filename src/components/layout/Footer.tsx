@@ -16,7 +16,7 @@ export function Footer() {
     <footer>
       <div className="wrap footer-grid">
         <div className="footer-mark">
-          <span>© {year} 조민수 · Minsoo Cho</span>
+          <span>© {year} 조민수 · Clarus Cho</span>
           <span>TRSN CLARUS</span>
         </div>
         <div>
