@@ -39,6 +39,26 @@ export function ProjectChapter({ project }: { project: Project }) {
           />
         )}
 
+        {project.images && project.images.length > 0 && (
+          <div className="chapter-gallery" role="group" aria-label="작업 화면">
+            {project.images.map((image) => (
+              <figure className="chapter-figure" key={image.src}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- static export, images.unoptimized */}
+                <img
+                  className="chapter-gallery-image"
+                  src={image.src}
+                  alt={image.alt}
+                  width={image.width}
+                  height={image.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+                {image.caption && <figcaption>{image.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        )}
+
         <dl className="chapter-sp">
           <div>
             <dt>Situation</dt>

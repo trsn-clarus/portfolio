@@ -11,6 +11,7 @@ export type ProjectImage = {
   alt: string;
   width: number;
   height: number;
+  caption?: string;
 };
 
 export type Project = {
@@ -30,6 +31,7 @@ export type Project = {
   tags: string[];
   links?: ProjectLink[];
   image?: ProjectImage;
+  images?: ProjectImage[];
   weight: "primary" | "secondary";
   state: SectionState;
 };
@@ -182,6 +184,22 @@ export const projects: Project[] = [
     org: "한화생명e스포츠",
     period: "YouTube · 2편",
     role: "중국어 간체 · 번체 자막 번역",
+    images: [
+      {
+        src: "/portfolio/work/hle-peanut-subtitles.jpg",
+        alt: "피넛 영상의 중국어 자막 화면 — 小时候看到的…",
+        width: 1280,
+        height: 720,
+        caption: "피넛 · 중국어 자막 화면",
+      },
+      {
+        src: "/portfolio/work/hle-viper-subtitles.jpg",
+        alt: "Viper 영상의 중국어 자막 화면 — 但是很多粉丝都在为我加油",
+        width: 1280,
+        height: 720,
+        caption: "Viper · 중국어 자막 화면",
+      },
+    ],
     situationKo:
       "한화생명e스포츠 YouTube 영상 2편의 중국어권 시청자를 위한 자막 작업입니다.",
     problemKo:
